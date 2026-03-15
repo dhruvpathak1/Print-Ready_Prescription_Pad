@@ -111,15 +111,29 @@ option {
 }
 
 #delete {
-  background-color: orange;
-  font-size: medium;
+  background-color: gold;
+  font-size: larger;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+#delete:hover {
+  background-color: red;
+  color: white;
+}
+
+#print {
+  background-color: greenyellow;
+  font-size: larger;
+  color: black;
   padding: 0.5em;
   border: 1px solid rgb(0, 0, 0);
   border-radius: 0.5em;
 }
 
-#delete:hover {
-  background-color: orangered;
+#print:hover {
+  background-color: green;
+  color: white;
 }
 
 #add {
@@ -166,24 +180,11 @@ input[type="text"] {
 
 .signh5 {
   float: right;
-  margin-right: 10em;
+  padding-top: 0.5em;
+  padding-right: 10em;
+  border-top: 1px solid black;
 }
 
-@media print {
-  input[type="text"] {
-    border: none;
-    padding: 0;
-  }
-
-  .types {
-    display: none;
-  }
-
-  input[type="button"] {
-    display: none;
-  }
-
-  .sign {
-    display: block;
-  }
+#printing {
+  height: 63vh;
 }

@@ -1,14 +1,66 @@
+# Prescription Pad
 
-### **Project Description**
+A streamlined, local web application designed for Smiles Dental Clinic to generate and print medical prescriptions efficiently.
 
-This project is a local web page for generating and printing medical prescriptions. The primary function of the website is to format prescription details for easy printing, with a key feature being the use of **Print CSS** to ensure that the output is properly spaced and fits correctly on a single page. The page supports a variety of prescription elements, including a header, footer, patient gender selection, and the ability to add and delete multiple medicine entries. After printing, the page automatically refreshes to prepare for the next patient's prescription, streamlining the workflow.
+## 📋 Table of Contents
+- [Project Description](#project-description)
+- [Key Features](#key-features)
+- [Technical Stack](#technical-stack)
+- [Dependencies](#dependencies)
+- [Project Structure](#project-structure)
+- [How to Run](#how-to-run)
+- [Usage Guide](#usage-guide)
 
-### **Technical Stack**
-* **HTML**: Provides the structure and content of the web page.
-* **CSS**: Styles the page and, most importantly, uses the `@media print { }` rule to apply specific formatting for printing, ensuring an optimized layout.
-* **JavaScript**: Manages dynamic functionalities, such as adding and deleting medicine lists, as well as refreshing the page after the print action is triggered.
+## 📖 Project Description
+The Prescription Pad is a specialized web tool built to simplify the medical prescription workflow. It allows healthcare professionals to quickly select medications, manage patient details, and produce professional-grade printed prescriptions. The application focuses on clean layout and optimized print formatting, ensuring that prescriptions are clear and legible.
 
-### **Key Features**
-* **Print Optimization**: The CSS is specifically designed to handle printing, ensuring that all medicine entries are equally spaced and limited to eight per page to maintain a clean and readable format.
-* **Dynamic Content**: Users can dynamically add and remove medicine entries, providing flexibility for different prescription needs.
-* **Automated Workflow**: The page refreshes automatically after printing, simplifying the process for creating sequential prescriptions.
+## ✨ Key Features
+- **Intuitive Selection:** Grouped categories for Antibiotics, Painkillers, Gum paint, Toothpaste, and Miscellaneous medications.
+- **Dynamic Entries:** Add multiple medications from pre-defined lists or enter custom "Extra" items.
+- **Live Preview:** View added medications in real-time before printing.
+- **Print Optimization:** Utilizes specialized Print CSS to ensure the layout fits perfectly on a single page with professional signature placement.
+- **Automated Workflow:** Re-initializes for the next patient automatically after a print action.
+- **Responsive Layout:** Clean design that works well in modern browsers.
+
+## 🛠 Technical Stack
+- **HTML5:** Semantic structure for the prescription form and layout.
+- **CSS3:** Advanced styling including `@media print` rules for professional output.
+- **JavaScript (Vanilla):** Refactored and modular logic for dynamic content management.
+
+## 📦 Dependencies
+This project is built using vanilla technologies and has no external package dependencies, making it lightweight and easy to deploy.
+- **Google Fonts:** Uses "Open Sans" for professional typography (requires internet connection).
+
+## 📂 Project Structure
+```text
+.
+├── assets/
+│   └── images/
+│       ├── icon.ico    # Application Favicon
+│       └── icon.jpg    # Alternative Icon Asset
+├── css/
+│   ├── styles.css     # Main application styles
+│   └── print.css      # Print-specific optimizations
+├── js/
+│   └── script.js      # Core application logic
+├── index.html         # Main entry point
+└── README.md          # Project documentation
+```
+
+## 🚀 How to Run
+1. Clone or download the repository to your local machine.
+2. Open `index.html` in any modern web browser (Chrome, Firefox, Edge, etc.).
+3. No server setup or build process is required.
+
+## 📝 Usage Guide
+1. **Patient Details:** Enter the patient's name and select their gender.
+2. **Adding Medications:**
+   - Use the dropdown menus to select common medications.
+   - Click the "Add" button next to the selection.
+   - Use the "Extra" text field for custom medications not in the lists.
+3. **Managing List:** Use the "Delete" button to remove the last added item if a mistake is made.
+4. **Printing:** Click the "Print" button. The application will format the items and open the browser's print dialog.
+5. **Reset:** The page will automatically refresh after printing, ready for the next patient.
+
+---
+*Developed for professional clinical use.*

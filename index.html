@@ -5,163 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prescription Pad</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" media="print" href="print.css" />
-    <link rel="shortcut icon" type="image" href="icon.jpg">
-
-    <style>
-        @page {
-            size: auto;
-            margin: 0mm;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" media="print" href="css/print.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/icon.ico">
 </head>
 
 <body>
-    <script>
-        var id = 1;
-        var items = [];
-        function one() {
-            var x = document.getElementById("med1").value;
-            if (x != "") {
-                id++;
-                var y = document.getElementById("meds");
-                var p = document.createElement("p");
-                var bkl = document.createElement("br");
-                p.setAttribute("id", id);
-                p.innerHTML = x;
-                y.appendChild(p)
-                items.push(x)
-
-            }
-        }
-
-        function two() {
-            var x = document.getElementById("med2").value;
-            if (x != "") {
-                id++;
-                var y = document.getElementById("meds");
-                var p = document.createElement("p");
-                var bkl = document.createElement("br");
-                p.setAttribute("id", id);
-                p.innerHTML = x;
-                y.appendChild(p)
-                items.push(x)
-
-            }
-        }
-
-        function three() {
-            var x = document.getElementById("med3").value;
-            if (x != "") {
-                id++;
-                var y = document.getElementById("meds");
-                var p = document.createElement("p");
-                var bkl = document.createElement("br");
-                p.setAttribute("id", id);
-                p.innerHTML = x;
-                y.appendChild(p)
-                items.push(x)
-
-            }
-        }
-
-        function four() {
-            var x = document.getElementById("med4").value;
-            if (x != "") {
-                id++;
-                var y = document.getElementById("meds");
-                var p = document.createElement("p");
-                var bkl = document.createElement("br");
-                p.setAttribute("id", id);
-                p.innerHTML = x;
-                y.appendChild(p)
-                items.push(x)
-
-            }
-        }
-
-        function five() {
-            var x = document.getElementById("med5").value;
-            if (x != "") {
-                id++;
-                var y = document.getElementById("meds");
-                var p = document.createElement("p");
-                var bkl = document.createElement("br");
-                p.setAttribute("id", id);
-                p.innerHTML = x;
-                y.appendChild(p)
-                items.push(x)
-
-            }
-        }
-
-        function six() {
-            var x = document.getElementById("med6").value;
-            if (x != "") {
-                id++;
-                var y = document.getElementById("meds");
-                var p = document.createElement("p");
-                var bkl = document.createElement("br");
-                p.setAttribute("id", id);
-                p.innerHTML = x;
-                y.appendChild(p)
-                items.push(x)
-
-            }
-        }
-
-        function deleteoption() {
-
-            if (id > 0) {
-                var del = document.getElementById(id);
-                del.remove();
-                id--;
-                items.pop()
-            }
-            else {
-                id = 1;
-            }
-        }
-
-        function male() {
-            var x = document.getElementById("gen");
-            x.innerHTML = "";
-            x.innerHTML = "Male";
-        }
-
-        function female() {
-            var x = document.getElementById("gen");
-            x.innerHTML = "";
-            x.innerHTML = "Female";
-        }
-
-        function other() {
-            var x = document.getElementById("gen");
-            x.innerHTML = "";
-            x.innerHTML = "Others";
-        }
-
-        function prepareprint() {
-            var len = items.length
-            var space = parseInt(100 / len)
-            var height = space.toString() + "%"
-            console.log(height)
-            for (i = 0; i < len; i++) {
-                var y = document.getElementById("printing");
-                var p = document.createElement("p");
-                p.innerHTML = items[i];
-                p.style.height = height
-                y.appendChild(p)
-            }
-            var myobj = document.getElementById("meds");
-            myobj.remove();
-            window.print();
-            window.location.reload()
-        }
-
-    </script>
-
     <div class="paper">
         <h1 class="title">Smiles Dental Clinic</h1>
         <h6 class="title">www.smilesdental.com</h6>
@@ -175,7 +24,6 @@
             <div class="doctor-info-line-2">
                 <h5 id="degree">Master's in Dental Surgery (New York)</h5>
                 <p id="phone2">1011 11010</p>
-
             </div>
 
             <div class="doctor-info-line-3">
@@ -188,12 +36,10 @@
             </b>
 
             <div class="timings">
-
                 <p class="address">High Tower, 530 Park Avanue, Manhattan, New York</p>
                 <p id="time1">Morning : 10:00am - 1:00pm</p>
                 <p id="time2">Evening : 5:30pm - 9:00pm</p>
             </div>
-
         </div>
 
         <p class="current-date">
@@ -210,9 +56,9 @@
 
                 <section class="patient-gender">
                     <label>Gender : </label>
-                    <input type="button" onclick="male()" value="Male">
-                    <input type="button" onclick="female()" value="Female">
-                    <input type="button" onclick="other()" value="Others">
+                    <input type="button" onclick="setGender('Male')" value="Male">
+                    <input type="button" onclick="setGender('Female')" value="Female">
+                    <input type="button" onclick="setGender('Others')" value="Others">
                     <p id="gen"></p>
                     <br><br>
                 </section>
@@ -241,7 +87,7 @@
                         <option value="CAP MOX (250mg)">CAP MOX (250mg)</option>
                         <option value="CAP MOX (500mg)">CAP MOX (500mg)</option>
                     </select>
-                    <input type="button" value="Add" id="add" onclick="one()">
+                    <input type="button" value="Add" id="add" onclick="addItem('med1')">
 
                     <select id="med2" class="med2">
                         <option value="" selected disabled>Painkillers</option>
@@ -257,7 +103,7 @@
                         <option value="Tab ESPIDASE-P (10mg)">Tab ESPIDASE-P (10mg)</option>
                         <option value="Tab DOLO (650mg)">Tab DOLO (650mg)</option>
                     </select>
-                    <input type="button" value="Add" id="add" onclick="two()">
+                    <input type="button" value="Add" id="add" onclick="addItem('med2')">
 
                     <select id="med3" class="med3">
                         <option value="" selected disabled>Gum paint</option>
@@ -268,7 +114,7 @@
                         <option value="DOLOGEL-CT">DOLOGEL-CT</option>
                         <option value="DENTOGEL-CT">DENTOGEL-CT</option>
                     </select>
-                    <input type="button" value="Add" id="add" onclick="three()">
+                    <input type="button" value="Add" id="add" onclick="addItem('med3')">
 
                     <br /><br />
 
@@ -285,7 +131,7 @@
                         <option value="SENSODYNE KF">SENSODYNE KF</option>
                         <option value="SENSOFORM">SENSOFORM</option>
                     </select>
-                    <input type="button" value="Add" id="add" onclick="four()">
+                    <input type="button" value="Add" id="add" onclick="addItem('med4')">
 
                     <select id="med5" class="med5">
                         <option value="" selected disabled>Miscellaneous</option>
@@ -300,10 +146,10 @@
                         <option value="Tab ZAP">Tab ZAP</option>
                         <option value="Tab OMEZ">Tab OMEZ</option>
                     </select>
-                    <input type="button" value="Add" id="add" onclick="five()">
+                    <input type="button" value="Add" id="add" onclick="addItem('med5')">
 
                     <input type="text" id="med6" placeholder="Extra" />
-                    <input type="button" value="Add" id="add" onclick="six()">
+                    <input type="button" value="Add" id="add" onclick="addItem('med6')">
 
                     <input type="button" value="Delete" id="delete" onclick="deleteoption()">
                     <input type="button" value="Print" id="print" onclick="prepareprint()">
@@ -319,6 +165,7 @@
         </div>
     </div>
 
+    <script src="js/script.js"></script>
 </body>
 
 </html>
