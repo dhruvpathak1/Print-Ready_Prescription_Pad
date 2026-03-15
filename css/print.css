@@ -1,0 +1,23 @@
+@page {
+    size: auto;
+    margin: 0mm;
+}
+
+@media print {
+    input[type="text"] {
+        border: none;
+        padding: 0;
+    }
+
+    .types {
+        display: none;
+    }
+
+    input[type="button"] {
+        display: none;
+    }
+
+    .sign {
+        display: block;
+    }
+}
